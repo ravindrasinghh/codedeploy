@@ -7,6 +7,7 @@ sts_connection = boto3.client('sts')
 role_arns = {
     "dev" : "arn:aws:iam::659604645969:role/Account-B-role"
 }
+print(role_arns[account])
 account_tokens = sts_connection.assume_role(
     RoleArn=role_arns[account],
     RoleSessionName="session_of_"+account+"_account"

@@ -41,4 +41,4 @@ if terraform_operation == "plan":
 elif terraform_operation == "apply":
     os.system("terraform apply -auto-approve")
 else:
-    echo "Invalid Input"
+    print("Invalid Input")

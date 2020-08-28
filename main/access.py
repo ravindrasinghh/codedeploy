@@ -17,6 +17,15 @@ os.environ["AWS_ACCESS_KEY_ID"] = account_tokens['Credentials']['AccessKeyId']
 os.environ["AWS_SECRET_ACCESS_KEY"] = account_tokens['Credentials']['SecretAccessKey']
 print(account_tokens['Credentials']['AccessKeyId'])
 print(account_tokens['Credentials']['SecretAccessKey'])
+
+client = boto3.client(
+        's3',
+        aws_access_key_id=ACCESS_KEY,
+        aws_secret_access_key=SECRET_KEY,
+        aws_session_token=SESSION_TOKEN,
+    )
+print(client.list_buckets())
+
 os.system("terraform init")
 if terraform_operation == "plan":
     os.system("terraform plan")

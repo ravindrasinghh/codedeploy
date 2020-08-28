@@ -1,9 +1,6 @@
 import boto3
 import os
 import sys
-import datetime
-
-time = str(datetime.datetime.now())
 
 terraform_operation = sys.argv[1]
 account = sys.argv[2]
@@ -14,7 +11,7 @@ role_arns = {
 print(role_arns[account])
 account_tokens = sts_connection.assume_role(
     RoleArn=role_arns[account],
-    RoleSessionName="session_of_"+account+"_account_"+time
+    RoleSessionName="session_of_account"
 )
 os.environ["AWS_ACCESS_KEY_ID"] = account_tokens['Credentials']['AccessKeyId']
 os.environ["AWS_SECRET_ACCESS_KEY"] = account_tokens['Credentials']['SecretAccessKey']

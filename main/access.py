@@ -5,7 +5,7 @@ terraform_operation = sys.argv[1]
 account = sys.argv[2]
 sts_connection = boto3.client('sts')
 role_arns = {
-    "dev" : "arn:aws:iam::224931607066:role/s3-cross-access"
+    "dev" : "arn:aws:iam::659604645969:role/s3-cross-role"
 }
 account_tokens = sts_connection.assume_role(
     RoleArn=role_arns[account],

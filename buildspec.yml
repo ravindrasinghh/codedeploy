@@ -1,0 +1,22 @@
+version: 0.2
+
+env:
+  variables:
+    TF_VERSION: "0.12.28"
+
+phases:
+  install:
+    commands:
+#       install required binary
+      - "apt install unzip -y"
+      - "wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
+      - "unzip -o -d /usr/local/bin/ terraform_${TF_VERSION}_linux_amd64.zip"
+      - "apt-get install jq"
+  pre_build:
+    commands:
+      - cd main
+      - python3 access.py plan dev
+
+  post_build:
+    commands:
+      - python3 access.py apply dev

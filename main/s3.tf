@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket = "my-test-s3-terraform-bucket-git-build-52"
+  bucket = "my-test-codebuild"
   acl = "private"
   versioning {
     enabled = true

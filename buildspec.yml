@@ -20,3 +20,4 @@ phases:
   post_build:
     commands:
       - python3 access.py apply dev
+

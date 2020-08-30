@@ -28,3 +28,5 @@ elif terraform_operation == "apply":
     os.system("terraform apply -auto-approve")
 else:
     print("Invalid Input")
+
+    
